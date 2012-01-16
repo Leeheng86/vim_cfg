@@ -1,6 +1,6 @@
 Installation:
 
-    git clone git://.git ~/.vim
+    git clone git@github.com:Leeheng86/vim_cfg.git ~/.vim
 
 Create symlinks:
 
