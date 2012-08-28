@@ -226,8 +226,8 @@ autocmd BufNewFile,BufRead *.js,*.htc,*.c,*.tmpl,*.css inoremap $c /**<CR>  **/<
 
 "My information
 iab xdate <C-R>=strftime("%d/%m/%y %H:%M:%S")<CR>
-iab xname Y.Z. Lin
-iab xemail yzlin1985@gmail.com
+iab xname Leeheng Ma
+iab xemail Leeheng86@gmail.com
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
