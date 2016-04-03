@@ -460,5 +460,6 @@ set makeprg=gcc\ -o\ %<\ %
 "set Tlist_Ctags_Cmd="/opt/local/bin/ctags"
 let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
 
+set foldcolumn=2
 
-set foldcolumn=3
+set rtp+=~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/
