@@ -28,25 +28,8 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Fast saving
-nmap <LEADER>w :w!<CR>
-nmap <LEADER>f :e ~/buffer<CR>
-
-" Must let the g:OS first (windows, unix, or mac)
-if g:OS == "windows"
-	" Fast reloading of the _vimrc
-	map <LEADER>s :source ~/_vimrc<CR>
-	" Fast editing of _vimrc
-	map <LEADER>e :e! ~/_vimrc<CR>
-		" When _vimrc is edited, reload it
-	autocmd! bufwritepost vimrc source ~/_vimrc
-else
-	" Fast reloading of the .vimrc
-	map <LEADER>s :source ~/.vimrc<CR>
-	" Fast editing of .vimrc
-	map <LEADER>e :e! ~/.vimrc<CR>
-	" When .vimrc is edited, reload it
-	autocmd! bufwritepost vimrc source ~/.vimrc
-endif
+"nmap <LEADER>w :w!<CR>
+"nmap <LEADER>f :e ~/buffer<CR>
 
 " None of these should be word dividers, so make them not be
 set isk+=_,$,@,%,#,-
@@ -123,8 +106,8 @@ hi MatchParen guifg=#000000 guibg=#d0d090
 "Favorite file types
 set ffs=unix,dos,mac
 
-nmap <LEADER>fd :se ff=dos<CR>
-nmap <LEADER>fu :se ff=unix<CR>
+"nmap <LEADER>fd :se ff=dos<CR>
+"nmap <LEADER>fu :se ff=unix<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -351,10 +334,10 @@ set spelllang=en
 hi clear SpellBad
 hi SpellBad term=underline cterm=underline ctermfg=red
 
-map <LEADER>sn ]s
-map <LEADER>sp [s
-map <LEADER>sa zg
-map <LEADER>s? z=
+"map <LEADER>sn ]s
+"map <LEADER>sp [s
+"map <LEADER>sa zg
+"map <LEADER>s? z=
 map <F6> :set spell!<CR><BAR>:echo "Spell check: " . strpart("OffOn", 3 * &spell, 3)<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -372,7 +355,7 @@ function! QFixToggle(forced)
     endif
 endfunction
 
-nnoremap <leader>q :QFix<CR>
+"nnoremap <leader>q :QFix<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug-in configuration
@@ -441,6 +424,11 @@ nnoremap <leader>q :QFix<CR>
 
     nnoremap <F3> :NERDTreeToggle<CR>
     let NERDTreeWinSize=20
+
+	""""""""""""""""""""""""""""""
+	" Taglist
+	""""""""""""""""""""""""""""""
+    map <Leader> <Plug>(easymotion-prefix)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " misc
