@@ -462,6 +462,13 @@ endfunction
         set rtp+=/usr/local/opt/fzf
     endif
 
+	""""""""""""""""""""""""""""""
+	" incsearch
+	""""""""""""""""""""""""""""""
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
