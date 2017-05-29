@@ -426,9 +426,20 @@ endfunction
     let NERDTreeWinSize=20
 
 	""""""""""""""""""""""""""""""
-	" Taglist
+	" EasyMotion
 	""""""""""""""""""""""""""""""
     map <Leader> <Plug>(easymotion-prefix)
+
+	""""""""""""""""""""""""""""""
+	" fzf
+	""""""""""""""""""""""""""""""
+    if g:OS == 'unix'
+        " If installed using git
+        set rtp+=~/.fzf
+    elseif g:OS == 'mac'
+        " If installed using Homebrew
+        set rtp+=/usr/local/opt/fzf
+    endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " misc
