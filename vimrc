@@ -395,19 +395,19 @@ endfunction
     " hot key
     nnoremap <F4> :TlistToggle<CR>
 
-	""""""""""""""""""""""""""""""
-	" Slippery Snippet
-	""""""""""""""""""""""""""""""
-	"set runtimepath+=~/.vim/textmateOnly
-	"set runtimepath+=~/.vim/textmateOnly/after
+    """"""""""""""""""""""""""""""
+    " Slippery Snippet
+    """"""""""""""""""""""""""""""
+    "set runtimepath+=~/.vim/textmateOnly
+    "set runtimepath+=~/.vim/textmateOnly/after
 
     " 調整 start & end tag，這樣可以通用在所有的語言中，不會導致 snippet 的符號和程式碼衝突
     "let g:snip_start_tag = "«"
     "let g:snip_end_tag = "»"
 
-	""""""""""""""""""""""""""""""
-	" Nerd Tree
-	""""""""""""""""""""""""""""""
+    """"""""""""""""""""""""""""""
+    " Nerd Tree
+    """"""""""""""""""""""""""""""
     " How to use?
     "
     " o       Open selected file, or expand selected dir
@@ -425,9 +425,9 @@ endfunction
     nnoremap <F3> :NERDTreeToggle<CR>
     let NERDTreeWinSize=20
 
-	""""""""""""""""""""""""""""""
-	" EasyMotion
-	""""""""""""""""""""""""""""""
+    """"""""""""""""""""""""""""""
+    " EasyMotion
+    """"""""""""""""""""""""""""""
     map <Leader> <Plug>(easymotion-prefix)
 
     "Default Mapping      | Details
@@ -451,9 +451,9 @@ endfunction
     "<Leader>s            | Find(Search) {char} forward and backward.
     "                     | See |f| and |F|.
 
-	""""""""""""""""""""""""""""""
-	" fzf
-	""""""""""""""""""""""""""""""
+    """"""""""""""""""""""""""""""
+    " fzf
+    """"""""""""""""""""""""""""""
     if g:OS == 'unix'
         " If installed using git
         set rtp+=~/.fzf
@@ -462,12 +462,32 @@ endfunction
         set rtp+=/usr/local/opt/fzf
     endif
 
-	""""""""""""""""""""""""""""""
-	" incsearch
-	""""""""""""""""""""""""""""""
+    """"""""""""""""""""""""""""""
+    " incsearch
+    """"""""""""""""""""""""""""""
     map /  <Plug>(incsearch-forward)
     map ?  <Plug>(incsearch-backward)
     map g/ <Plug>(incsearch-stay)
+
+    """"""""""""""""""""""""""""""
+    " incsearch-easymotion
+    """"""""""""""""""""""""""""""
+    " You can use other keymappings like <C-l> instead of <CR> if you want to
+    " use these mappings as default search and somtimes want to move cursor with
+    " EasyMotion.
+    function! s:incsearch_config(...) abort
+      return incsearch#util#deepextend(deepcopy({
+      \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+      \   'keymap': {
+      \     "\<CR>": '<Over>(easymotion)'
+      \   },
+      \   'is_expr': 0
+      \ }), get(a:, 1, {}))
+    endfunction
+
+    noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
+    noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+    noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " misc
